@@ -1322,7 +1322,7 @@ else()
 		${SYS_INCLUDES} ${SYS_SOURCES})
 	
 	find_package(OpenGL REQUIRED)
-	include_directories(${OPENGL_INCLUDE_DIRS})
+	include_directories(${OPENGL_INCLUDE_DIR})
 
 	if(UNIX)
 		if(FFMPEG)

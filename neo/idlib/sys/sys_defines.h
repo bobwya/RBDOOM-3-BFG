@@ -101,21 +101,18 @@ If you have questions concerning this license or the applicable additional terms
 #define WIN32
 #endif
 
+#elif defined(__unix__)
 
-#elif defined(__linux__) || defined(__FreeBSD__) || defined(__APPLE__) || defined(__GNUC__) || defined(__clang__)
-
-#ifndef CPUSTRING
 #if defined(__i386__)
 #define	CPUSTRING						"x86"
 #elif defined(__x86_64__)
 #define CPUSTRING						"x86_86"
-#else
-#error unknown CPU
-#endif
 #endif
 
 #if defined(__FreeBSD__)
 #define	BUILD_STRING					"freebsd-" CPUSTRING
+#elif defined(__OpenBSD__)
+#define	BUILD_STRING					"openbsd-" CPUSTRING
 #elif defined(__linux__)
 #define	BUILD_STRING					"linux-" CPUSTRING
 #elif defined(__APPLE__)

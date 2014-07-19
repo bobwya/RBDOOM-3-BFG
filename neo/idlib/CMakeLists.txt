@@ -112,8 +112,10 @@ else()
 	endforeach()
 	endif()
 
+	find_package(OpenGL REQUIRED)
+	include_directories(${OPENGL_INCLUDE_DIR})
 	include_directories(.)
-	
+
 	if (USE_PRECOMPILED_HEADERS)
 	# precompiled magic for GCC/clang, adapted from https://gist.github.com/573926
 	STRING(TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" _flags_var_name)
@@ -136,7 +138,7 @@ else()
 	                  COMMENT "Creating idlib/precompiled.h.gch for idlib"
 	                  )
 	endif()
-	
+
 	add_library(idlib ${ID_SOURCES_ALL} ${ID_INCLUDES_ALL})
 	if (USE_PRECOMPILED_HEADERS)
 	add_dependencies(idlib precomp_header_idlib)

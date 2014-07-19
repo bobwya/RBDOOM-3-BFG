@@ -1507,7 +1507,8 @@ else()
 	endif()	
 
 	if(NOT WIN32)
-		if(NOT "${CMAKE_SYSTEM}" MATCHES "Darwin")
+		if(NOT ("${CMAKE_SYSTEM}" MATCHES "Darwin" OR
+			"${CMAKE_SYSTEM}" MATCHES "OpenBSD"))
 			set(RT_LIBRARY rt)
 		endif()
 
